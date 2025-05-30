@@ -13,11 +13,14 @@ export default async function middleware(req: NextRequest) {
       const secret = new TextEncoder().encode(envConfig.JWT.JWT_SECRET);
       const { payload } = await jwtVerify(token, secret);
 
-      const role = payload.role;
+      const role : string = payload.role!;
       const userId = payload.sub!;
+
+      console.log(role, 'role middle ware')
 
       const requestHeaders = new Headers(req.headers);
       requestHeaders.set("user-id", userId);
+      requestHeaders.set("role", role);
 
       // 🔒 Block access to /sign-in and /sign-up for logged-in users
       if (isAuthPage) {
