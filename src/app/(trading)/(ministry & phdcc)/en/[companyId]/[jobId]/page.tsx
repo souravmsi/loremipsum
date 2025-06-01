@@ -56,7 +56,7 @@ export default async function ApprovedByPhDCCPage({
 
   return (
     <div className="px-4 py-6 space-y-6">
-      <h1 className="text-2xl font-bold">Approved by PHDCC</h1>
+      <h1 className="text-2xl font-bold">Approved by PHDCCI</h1>
 
       <form className="flex flex-wrap gap-4" method="GET">
         <Input
@@ -84,7 +84,7 @@ export default async function ApprovedByPhDCCPage({
               <th className="px-4 py-2">College</th>
               <th className="px-4 py-2">Resume</th>
               <th className="px-4 py-2">Status</th>
-              <th className="px-4 py-2">PHDCC Approved</th>
+              <th className="px-4 py-2">PHDCCI Approved</th>
               <th className="px-4 py-2">Ministry Approved</th>
             </tr>
           </thead>

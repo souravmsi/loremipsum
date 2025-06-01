@@ -50,7 +50,7 @@ export default async function ApprovedByMinistryPage({ searchParams }: Props) {
   return (
     <div className="p-4 space-y-4">
       <div className="mx-auto space-y-4">
-      <h1 className="text-2xl font-semibold">Approved Candidates by PHDCC</h1>
+      <h1 className="text-2xl font-semibold">Approved Candidates by PHDCCI</h1>
         <SearchForm />
         <Suspense fallback={<div>Loading...</div>}>
           <DataTable

@@ -81,7 +81,7 @@ export const columns: ColumnDef<any>[] = [
     cell: ({ row }) => row.original.job.title,
   },
   {
-    header: "Approved by PHDCC",
+    header: "Approved by PHDCCI",
     accessorKey: "phdccApproved",
     cell: ({ row }) => {
       const [isPending, startTransition] = useTransition();
@@ -93,7 +93,7 @@ export const columns: ColumnDef<any>[] = [
 
       const onToggleClick = () => {
         if (userRole !== "PHDCC") {
-          toast.error("Only PHDCC users can approve.");
+          toast.error("Only PHDCCI users can approve.");
           return;
         }
         setNextValue(!approved);

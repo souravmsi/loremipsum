@@ -37,6 +37,7 @@ export const createUser = async (formData: z.infer<typeof registerSchema>) => {
   // Step 1: Create User
   const user = await prisma.user.create({
     data: {
+      name,
       email,
       password: hashedPassword,
       role,

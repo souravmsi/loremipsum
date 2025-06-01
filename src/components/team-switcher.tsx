@@ -20,13 +20,13 @@ export function TeamSwitcher() {
                                 width={100}
                                 height={100}
                                 className="size-8"
-                                src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWIvuu-6zzjrqxy5jczL-yiQQRE3DKWLckbQ&s"}
+                                src={"https://www.phdcciinternationalweek.in/themes/custom/phdcci/common/images/logo-final-2024.png"}
                             />
                         </div>
                         <div className="flex flex-col gap-0.5 leading-none">
-                            <span className="font-semibold">PHDCC</span>
+                            <span className="font-semibold">PHDCCI</span>
                             <span className="text-xs">
-                                PHDCC Jobs Platform
+                                PHDCCI Jobs Platform
                             </span>
                         </div>
                     </Link>

@@ -12,9 +12,9 @@ const SignIncard = () => {
                 <div className="flex justify-center gap-2 md:justify-start">
                     <Link href="/" className="flex items-center gap-2 font-medium">
                         <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                            <GalleryVerticalEnd className="size-4" />
+                            <Image alt="logo" width={20} height={20} src={'https://www.phdcciinternationalweek.in/themes/custom/phdcci/common/images/logo-final-2024.png'}/>
                         </div>
-                        Loremipsum Group Pvt Ltd.
+                        PHDCCI
                     </Link>
                 </div>
                 <div className="flex flex-1 items-center justify-center">
@@ -27,7 +27,7 @@ const SignIncard = () => {
                 <Image
                     width={200}
                     height={200}
-                    src="https://img.freepik.com/free-vector/logo-tie-design-template_474888-1906.jpg"
+                    src="https://www.phdcciinternationalweek.in/themes/custom/phdcci/common/images/logo-final-2024.png"
                     alt="Image"
                     className="absolute bg-blend-difference left-1/2 top-1/2 -translate-x-[50%] -translate-y-[50%] h-30 w-1/2 object-cover brightness-[0.8]"
                 />

@@ -39,6 +39,9 @@ const AllJobsPage = async ({ searchParams }: Props) => {
         include: {
           company: true,
         },
+        where: {
+          status: "OPEN",
+        }
       }),
       prisma.job.count(),
     ]);

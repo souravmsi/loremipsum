@@ -35,7 +35,7 @@ export async function approveByPHDCC(applicationId: string, approve: boolean) {
     }
 
     if (user.role !== "PHDCC") {
-      throw new Error("Forbidden: User role is not PHDCC");
+      throw new Error("Forbidden: User role is not PHDCCI");
     }
 
     // Update job application approval status

@@ -14,8 +14,8 @@ const PoppinsSans = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Loremimpusm",
-  description: "Loremimpusm",
+  title: "PHDCCI",
+  description: "PHDCCI Jobs Platform",
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/images/favicon.png" />
+        <link rel="icon" href="https://www.phdcciinternationalweek.in/themes/custom/phdcci/common/images/logo-final-2024.png" />
       </head>
       <body className={`font-spaceSans antialiased ${PoppinsSans.variable}`}>
         <AuthProvider>
@@ -37,7 +37,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <NextTopLoader
-              color="#000000"
+              color="#7F8CAA"
               showSpinner={false}
               shadow={false}
               crawlSpeed={50}

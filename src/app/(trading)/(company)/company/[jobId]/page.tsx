@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { updateJobApplicationStatus } from "./actions";
+import { updateJobApplicationStatus, toggleJobStatus } from "./actions";
 import { toast } from "sonner";
 import Pagination from "./pagination";
 
@@ -42,7 +42,16 @@ export default async function ApprovedByPhDCCPage({
     };
   }
 
-  const totalCandidates = await prisma.jobApplication.count({ where: whereFilter });
+  const job = await prisma.job.findUnique({
+    where: { id: jobId },
+    select: { status: true },
+  });
+
+  if (!job) return notFound();
+
+  const totalCandidates = await prisma.jobApplication.count({
+    where: whereFilter,
+  });
 
   const applications = await prisma.jobApplication.findMany({
     where: whereFilter,
@@ -58,7 +67,30 @@ export default async function ApprovedByPhDCCPage({
 
   return (
     <div className="px-4 py-6 space-y-6">
-      <h1 className="text-2xl font-bold">Applications</h1>
+      <div className="flex items-center justify-between flex-wrap gap-4">
+        <h1 className="text-2xl font-bold">Applications</h1>
+        <div className="flex items-center gap-4">
+          <h2 className="text-lg font-semibold">
+            Status:{" "}
+            <Badge variant={job.status === "OPEN" ? "success" : "destructive"}>
+              {job.status}
+            </Badge>
+          </h2>
+          <form
+            action={async () => {
+              "use server";
+              await toggleJobStatus(jobId);
+            }}
+          >
+            <Button
+              type="submit"
+              variant={job.status === "OPEN" ? "destructive" : "default"}
+            >
+              {job.status === "OPEN" ? "Close Job" : "Reopen Job"}
+            </Button>
+          </form>
+        </div>
+      </div>
 
       <form className="flex flex-wrap gap-4" method="GET">
         <Input
@@ -86,7 +118,7 @@ export default async function ApprovedByPhDCCPage({
               <th className="px-4 py-2">College</th>
               <th className="px-4 py-2">Resume</th>
               <th className="px-4 py-2">Status</th>
-              <th className="px-4 py-2">PHDCC Approved</th>
+              <th className="px-4 py-2">PHDCCI Approved</th>
               <th className="px-4 py-2">Ministry Approved</th>
               <th className="px-4 py-2">Change Status</th>
             </tr>
@@ -144,9 +176,11 @@ export default async function ApprovedByPhDCCPage({
                         <option value="PENDING">Pending</option>
                         <option value="SELECTED">Selected</option>
                         <option value="REJECTED">Rejected</option>
-                        <option value="SHORTLISTED">SHORTLISTED</option>
+                        <option value="SHORTLISTED">Shortlisted</option>
                       </select>
-                      <Button type="submit" size="sm" className="ml-2">Update</Button>
+                      <Button type="submit" size="sm" className="ml-2">
+                        Update
+                      </Button>
                     </form>
                   </td>
                 </tr>
@@ -157,7 +191,7 @@ export default async function ApprovedByPhDCCPage({
       </div>
 
       {applications.length > 0 && (
-        <Pagination page={page} totalPages={totalPages}/>
+        <Pagination page={page} totalPages={totalPages} />
       )}
     </div>
   );

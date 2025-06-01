@@ -61,7 +61,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       icon: GalleryVerticalEnd,
     },
     {
-      name: "Approved by PHDCC",
+      name: "Approved by PHDCCI",
       url: "/en/approved-by-phdcc",
       icon: AudioWaveform,
     },
@@ -88,7 +88,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   const data = {
     user: {
-      name: "user",
+      name: user?.name || "User Name",
       email: user?.email ?? "user@gmail.com",
       avatar: "/avatars/shadcn.jpg",
     },

@@ -10,6 +10,7 @@ datasource db {
 model User {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   email     String   @unique
+  name      String
   password  String
   role      Role
   student   Student?
@@ -50,6 +51,7 @@ model Job {
   company      Company          @relation(fields: [companyId], references: [id])
   title        String
   description  String
+  status       JobStatus        @default(OPEN)
   createdAt    DateTime         @default(now())
   applications JobApplication[]
 }
@@ -79,3 +81,9 @@ enum ApplicationStatus {
   SELECTED
   REJECTED
 }
+
+enum JobStatus {
+  OPEN
+  CLOSED
+}
+

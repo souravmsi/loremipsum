@@ -79,7 +79,7 @@ export const columns: ColumnDef<any>[] = [
     cell: ({ row }) => row.original.job.title,
   },
   {
-    header: "Approved by PHDCC",
+    header: "Approved by PHDCCI",
     accessorKey: "phdccApproved",
     cell: ({ row }) => {
       const {user} = useAuth();
@@ -91,7 +91,7 @@ export const columns: ColumnDef<any>[] = [
 
       const onToggleClick = () => {
         if (userRole !== "PHDCC") {
-          toast.error("Only PHDCC users can approve.");
+          toast.error("Only PHDCCI users can approve.");
           return;
         }
         setNextValue(!approved);
@@ -103,9 +103,9 @@ export const columns: ColumnDef<any>[] = [
           try {
             await approveByPHDCC(row.original.id, nextValue!);
             setApproved(nextValue!);
-            toast.success(`PHDCC approval ${nextValue ? "granted" : "revoked"}`);
+            toast.success(`PHDCCI approval ${nextValue ? "granted" : "revoked"}`);
           } catch (error) {
-            toast.error("Failed to update PHDCC approval");
+            toast.error("Failed to update PHDCCI approval");
           }
         });
       };

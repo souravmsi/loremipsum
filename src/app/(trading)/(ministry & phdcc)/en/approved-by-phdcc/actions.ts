@@ -36,7 +36,7 @@ export async function approveByMinistry(applicationId: string, approve: boolean)
     }
 
     if (user.role !== "MINISTRY") {
-      throw new Error("Forbidden: User role is not PHDCC");
+      throw new Error("Forbidden: User role is not PHDCCI");
     }
 
     // Update job application approval status

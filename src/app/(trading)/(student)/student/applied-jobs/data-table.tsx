@@ -39,7 +39,7 @@ const DataTable = ({ jobs, totalPages, page }) => {
                 <TableHead>Location</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Ministry Approved</TableHead>
-                <TableHead>PhDCC Approved</TableHead>
+                <TableHead>PHDCCI Approved</TableHead>
                 <TableHead>Applied On</TableHead>
               </TableRow>
             </TableHeader>

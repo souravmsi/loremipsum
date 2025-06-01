@@ -31,6 +31,7 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useTransition } from "react";
 import { toast } from "sonner";
+import { useAuth } from "./auth-provider";
 
 export function NavUser({
     user,
@@ -80,7 +81,7 @@ export function NavUser({
                                     alt={user.name}
                                 />
                                 <AvatarFallback className="rounded-lg">
-                                    PH
+                                    {user?.name?.charAt(0)?.toUpperCase() || "CN"}
                                 </AvatarFallback>
                             </Avatar>
                             <div className="grid flex-1 text-left text-sm leading-tight">
@@ -108,7 +109,7 @@ export function NavUser({
                                         alt={user.name}
                                     />
                                     <AvatarFallback className="rounded-lg">
-                                        CN
+                                    {user?.name?.charAt(0)?.toUpperCase() || "CN"}
                                     </AvatarFallback>
                                 </Avatar>
                                 <div className="grid flex-1 text-left text-sm leading-tight">
