@@ -28,11 +28,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useRouter } from "next/navigation";
 
 type FormData = z.infer<typeof registerSchema>;
 
 export function SignupForm({ className }: { className?: string }) {
   const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
   const form = useForm<FormData>({
     resolver: zodResolver(registerSchema),
@@ -56,6 +58,7 @@ export function SignupForm({ className }: { className?: string }) {
         await axios.post("/api/register", values);
         toast.success("User registered!");
         form.reset();
+        router.push("/sign-in");
       } catch (error: unknown) {
         if(error instanceof AxiosError) {
           toast.error(error.response?.data?.message || "Something went wrong");
@@ -123,7 +126,7 @@ export function SignupForm({ className }: { className?: string }) {
                       <SelectContent>
                         <SelectItem value="STUDENT">Student</SelectItem>
                         <SelectItem value="COMPANY">Company</SelectItem>
-                        <SelectItem value="PHDCC">PHDCC</SelectItem>
+                        <SelectItem value="PHDCC">PHDCCI</SelectItem>
                         <SelectItem value="MINISTRY">Ministry</SelectItem>
                       </SelectContent>
                     </Select>
